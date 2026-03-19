@@ -3,13 +3,10 @@ services:
     name: openclaw
     runtime: docker
     plan: free
+    healthCheckPath: /healthz
     envVars:
       - key: PORT
-        value: "18789"                    # ← tell Render to look for THIS port
-      - key: OPENCLAW_GATEWAY_PORT
-        value: "18789"                    # ← OpenClaw binds here
-      - key: OPENCLAW_GATEWAY_BIND
-        value: "0.0.0.0"                  # ← bind to all interfaces, not just loopback
+        value: "18789"
       - key: SETUP_PASSWORD
         sync: false
       - key: OPENCLAW_GATEWAY_TOKEN
